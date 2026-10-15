@@ -1,0 +1,90 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f2f5fa;
+  font-family: Arial, sans-serif;
+  color: #243047;
+}
+
+.container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 5px 22px #00000012;
+}
+
+h1 {
+  text-align: center;
+  color: #234fba;
+}
+
+.subtitle {
+  text-align: center;
+  color: #68758a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd3e1;
+  border-radius: 7px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 85px;
+  resize: vertical;
+}
+
+button {
+  padding: 13px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 7px;
+  background: #234fba;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #173a8d;
+}
+
+a {
+  color: #234fba;
+  font-weight: bold;
+}
+
+.feedback-card {
+  padding: 16px;
+  margin-top: 18px;
+  border: 1px solid #dce3ef;
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .container {
+    margin: 16px;
+    padding: 20px;
+  }
+}
