@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -9,8 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/feedback")
-  .then(() => console.log("Connected to MongoDB"))
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected to MongoDB Atlas"))
   .catch((err) => console.log("MongoDB error:", err.message));
 
 const feedbackSchema = new mongoose.Schema({
@@ -26,6 +27,10 @@ const feedbackSchema = new mongoose.Schema({
 });
 
 const Feedback = mongoose.model("Feedback", feedbackSchema);
+
+app.get("/", (req, res) => {
+  res.send("Feedback API is running");
+});
 
 app.post("/api/feedback", async (req, res) => {
   try {
@@ -47,6 +52,8 @@ app.get("/api/getfeedback", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
